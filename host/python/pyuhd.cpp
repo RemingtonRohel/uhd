@@ -45,6 +45,7 @@ namespace py = pybind11;
 #include "usrp/subdev_spec_python.hpp"
 #include "utils/paths_python.hpp"
 #include "utils/utils_python.hpp"
+#include "usrp_clock/multi_usrp_clock_python.hpp"
 
 // We need this hack because import_array() returns NULL
 // for newer Python versions.
@@ -86,6 +87,10 @@ PYBIND11_MODULE(libpyuhd, m)
     export_dboard_iface(usrp_module);
     export_fe_connection(usrp_module);
     export_stream(usrp_module);
+
+    // Register usrp_clock submodule
+    auto usrp_clock_module = m.def_submodule("usrp_clock", "USRP Clock");
+    export_multi_usrp_clock(usrp_clock_module);
 
     // Register filters submodule
     auto filters_module = m.def_submodule("filters", "Filter Submodule");

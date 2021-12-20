@@ -13,6 +13,7 @@ from . import filters
 from . import rfnoc
 from . import dsp
 from . import chdr
+from . import usrp_clock
 from .libpyuhd.paths import *
 from .libpyuhd import find
 from .property_tree import PropertyTree
